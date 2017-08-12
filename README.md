@@ -1,3 +1,3 @@
 # piece-of-mind
 
-microblog
+microblogging application
