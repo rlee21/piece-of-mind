@@ -1,2 +1,30 @@
+##########################################
+# query db with SQLAlchemy using REPL
+# http://flask-sqlalchemy.pocoo.org/2.1/
+##########################################
+from app import db, models
+
+# get all posts from a user
+u = models.User.query.get(1)
+u
+
+
+posts = u.posts.all()
+posts
+
+# obtain author of each post
+for p in posts:
+    print(p.id,p.author.nickname,p.body)
+
+# a user that has no posts
+u = models.User.query.get(2)
+u
+u.posts.all()
+
+# get all users in reverse alphabetical order
+models.User.query.order_by('nickname desc').all()
+
+
+
 # testing email on a machine that does not have an email server
 python -m smtpd -n -c DebuggingServer localhost:25
