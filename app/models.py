@@ -29,8 +29,6 @@ class User(db.Model):
         except NameError:
             return str(self.id)  # python 3
 
-    def __repr__(self):
-        return '<User %r>' % (self.nickname)
 
     def avatar(self, size):
         return 'http://www.gravatar.com/avatar/%s?d=mm&s=%d' % (md5(self.email.encode('utf-8')).hexdigest(), size)
@@ -49,11 +47,16 @@ class User(db.Model):
         return new_nickname
 
 
+    def __repr__(self):
+        return '<User %r>' % (self.nickname)
+
+
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140))
     timestamp = db.Column(db.DateTime)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
 
     def __repr__(self):
         return '<Post %r>' % (self.body)
