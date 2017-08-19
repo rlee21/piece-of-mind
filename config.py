@@ -26,3 +26,6 @@ MAIL_PASSWORD = None
 
 # administrator list
 ADMINS = ['rlee21@comcast.net']
+
+# pagination
+POSTS_PER_PAGE = 3
