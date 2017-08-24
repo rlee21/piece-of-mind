@@ -1,3 +1,4 @@
+# -*- coding: utf8 -*-
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -16,17 +17,21 @@ SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
 WHOOSH_BASE = os.path.join(basedir, 'search.db')
 
 # email server
-MAIL_SERVER = 'localhost'
-#mail_server = 'localhost'
-#mail_server = 'your.mailserver.com'
+MAIL_SERVER = 'your.mailserver.com'
 MAIL_PORT = 25
 MAIL_USE_TLS = False
 MAIL_USE_SSL = False
 MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
 MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 
+# available languages
+LANGUAGES = {
+    'en': 'English',
+    'es': 'Español'
+}
+
 # administrator list
-ADMINS = ['rlee21@comcast.net']
+ADMINS = ['you@example.com']
 
 # pagination
 POSTS_PER_PAGE = 3
